@@ -1,0 +1,39 @@
+name: phabdev-starter-lite
+services:
+  db:
+    image: postgres:17.11-alpine
+    environment:
+      POSTGRES_DB: starter
+      POSTGRES_USER: ${DB_USERNAME:-starter}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Run node scripts/init-env.mjs first}
+    ports:
+      - '127.0.0.1:5433:5432'
+    volumes:
+      - database:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U "$${POSTGRES_USER}" -d starter']
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+  backend:
+    build: ./backend
+    env_file: .env
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/starter
+      PORT: '8080'
+    ports:
+      - '127.0.0.1:8080:8080'
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+  frontend:
+    build: ./frontend
+    ports:
+      - '127.0.0.1:4200:80'
+    depends_on:
+      - backend
+    restart: unless-stopped
+volumes:
+  database:

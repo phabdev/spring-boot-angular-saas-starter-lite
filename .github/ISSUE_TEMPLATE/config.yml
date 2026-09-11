@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Setup and architecture discussions
+    url: https://github.com/phabdev/spring-boot-angular-saas-starter-lite/discussions
+    about: Ask questions and share implementation feedback.

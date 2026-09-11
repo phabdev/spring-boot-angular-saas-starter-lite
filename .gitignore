@@ -1,0 +1,13 @@
+**/node_modules/
+**/dist/
+**/target/
+**/.angular/
+**/.env
+**/.env.local
+**/playwright-report/
+**/test-results/
+.tools/
+.artifacts/
+*.log
+.DS_Store
+**/data/

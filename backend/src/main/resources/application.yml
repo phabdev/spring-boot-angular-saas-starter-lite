@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: phabdev-saas-starter
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5433/starter}
+    username: ${DB_USERNAME:starter}
+    password: ${DB_PASSWORD}
+    hikari:
+      maximum-pool-size: 10
+  flyway:
+    enabled: true
+server:
+  port: ${PORT:8080}
+  error:
+    include-message: never
+    include-stacktrace: never
+  tomcat:
+    max-http-form-post-size: 64KB
+app:
+  origin: ${APP_ORIGIN:http://localhost:4200}
+  cookie-secure: ${COOKIE_SECURE:false}
+  jwt-secret: ${JWT_SECRET}
+  access-seconds: ${JWT_ACCESS_SECONDS:900}
+  refresh-days: ${JWT_REFRESH_DAYS:7}
+  auth-rate-limit: ${AUTH_RATE_LIMIT:30}
+  seed:
+    enabled: ${APP_SEED_ENABLED:false}
+    admin-email: ${APP_SEED_ADMIN_EMAIL:}
+    admin-password: ${APP_SEED_ADMIN_PASSWORD:}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: never
+springdoc:
+  api-docs:
+    enabled: ${OPENAPI_ENABLED:true}
+  swagger-ui:
+    enabled: ${OPENAPI_ENABLED:true}
