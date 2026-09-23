@@ -12,7 +12,7 @@ button:focus-visible,a:focus-visible { outline: 3px solid #70b5ff; outline-offse
 button { white-space: nowrap; }
 .muted { color: #59687c; }.small { font-size: 12px; }.full-width { width: 100%; }
 .eyebrow,.nav-label,.card-label { font-size: 11px; font-weight: 700; letter-spacing: 1.4px; color: #647891; }
-.brand { font-size: 21px; letter-spacing: 1.5px; font-weight: 800; color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+.brand { font-size: 18px; letter-spacing: -.4px; font-weight: 800; color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
 .brand span { font-size: 10px; letter-spacing: .5px; color: #bddcff; padding: 3px 7px; border: 1px solid #3d5473; border-radius: 5px; }
 .app-shell { min-height: 100vh; display: grid; grid-template-columns: 235px minmax(0,1fr); }
 .sidebar { padding: 31px 22px; color: #eef4ff; background: #122035; display: flex; flex-direction: column; }
