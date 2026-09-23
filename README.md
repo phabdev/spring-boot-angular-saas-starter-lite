@@ -127,8 +127,8 @@ For details and common problems, see [installation](docs/starter-kit/installatio
 ## Run the checks
 
 ```bash
-cd backend && ./mvnw verify      # needs Docker for Testcontainers
-cd frontend && npm ci && npm test && npm run build
+(cd backend && ./mvnw verify)                       # needs Docker for Testcontainers
+(cd frontend && npm ci && npm test && npm run build)
 ```
 
 CI runs the same checks on every push to `master` and on every pull request.
