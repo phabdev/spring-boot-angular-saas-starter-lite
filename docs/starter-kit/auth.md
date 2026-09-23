@@ -1,6 +1,6 @@
 # Authentication
 
-Read [API contract](api-contract.md) for exact fields. Register/login return a JWT access token and public user fields, while a random refresh token is set as the `refresh_token` HttpOnly cookie. Passwords are BCrypt hashes. The server stores refresh token hashes and expiry; the browser keeps the access token only in memory.
+For the reasoning, alternatives and limits behind each choice, see [Authentication design decisions](auth-decisions.md). Read [API contract](api-contract.md) for exact fields. Register/login return a JWT access token and public user fields, while a random refresh token is set as the `refresh_token` HttpOnly cookie. Passwords are BCrypt hashes. The server stores refresh token hashes and expiry; the browser keeps the access token only in memory.
 
 The client sends `Authorization: Bearer <accessToken>` to protected endpoints. On page reload it refreshes the session. On an API 401 it shares one refresh request across concurrent failures and retries each request once. Authentication endpoints do not recursively trigger refresh. A failed refresh clears the client session.
 

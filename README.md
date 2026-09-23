@@ -150,11 +150,13 @@ You can try its screens in the [interactive demo](https://demo.starter.phabdev.c
 
 ## Documentation
 
-[Architecture](docs/starter-kit/architecture.md) · [Authentication](docs/starter-kit/auth.md) · [Roles and ownership](docs/starter-kit/rbac.md) · [API contract](docs/starter-kit/api-contract.md) · [Docker](docs/starter-kit/docker.md) · [Deployment](docs/starter-kit/deployment.md) · [Version choices](docs/starter-kit/versions.md) · [Changelog](docs/starter-kit/changelog.md)
+[Architecture](docs/starter-kit/architecture.md) · [Authentication](docs/starter-kit/auth.md) · [Auth design decisions](docs/starter-kit/auth-decisions.md) · [Roles and ownership](docs/starter-kit/rbac.md) · [API contract](docs/starter-kit/api-contract.md) · [Docker](docs/starter-kit/docker.md) · [Deployment](docs/starter-kit/deployment.md) · [Version choices](docs/starter-kit/versions.md) · [Changelog](docs/starter-kit/changelog.md)
 
-## Built with AI assistance
+## How it was built
 
-This codebase was developed with AI coding agents and reviewed by a human. Tests and CI are included so you can check its behaviour yourself. Treat them as evidence to inspect, not as a guarantee.
+I'm a software developer with 14+ years of experience. I used AI coding agents to write most of the implementation, because it was far faster than typing it by hand, and kept the decisions for myself: I defined the scope and evaluated and approved the architecture, the security model and the test plan. The reasoning behind every authentication choice, with its alternatives and limits, is in [Authentication design decisions](docs/starter-kit/auth-decisions.md).
+
+The security-relevant behaviour (token rotation and replay, concurrency, ownership isolation) is covered by integration tests against real PostgreSQL that run in CI. Treat them as evidence to inspect, not as a guarantee.
 
 ## Feedback and contributing
 
